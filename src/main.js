@@ -1,5 +1,10 @@
 // Тут пиши JavaScript свого домашнього завдання.
 // Додаткові модулі створюй поруч у src/ і імпортуй їх сюди:
-//   import { something } from './something.js';
+import "./css/styles.css";
 
-console.log('Шаблон готовий. Можна писати код 🚀');
+
+// Описаний в документації
+import SimpleLightbox from "simplelightbox";
+// Додатковий імпорт стилів
+import "simplelightbox/dist/simple-lightbox.min.css";
+
