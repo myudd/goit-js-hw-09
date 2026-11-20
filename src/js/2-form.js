@@ -1,6 +1,6 @@
 import * as defaults from "../main.js";
 const form = document.querySelector('.feedback-form');
-const formState = {
+const formData = {
     email: "",
     message: "",
 };
@@ -14,17 +14,17 @@ if (saved) {
     const parsed = JSON.parse(saved);
     email.value = parsed.email ?? "";
     message.value = parsed.message ?? "";
-      formState.email = parsed.email ?? "";
-      formState.message = parsed.message ?? "";
+      formData.email = parsed.email ?? "";
+      formData.message = parsed.message ?? "";
   } catch (error) {
     console.error("Invalid JSON in storage:", error);
   }
 }
 
 form.addEventListener('input', (event) => {
-    formState.email = email.value;
-    formState.message = message.value;
-    localStorage.setItem(storageKey, JSON.stringify(formState));
+    formData.email = email.value;
+    formData.message = message.value;
+    localStorage.setItem(storageKey, JSON.stringify(formData));
 })
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -36,7 +36,7 @@ form.addEventListener('submit', (event) => {
     }
     localStorage.removeItem(storageKey);
     form.reset();
-    formState.email = email.value;
-    formState.message = message.value;
-    console.log(localStorage.getItem(storageKey));
+    formData.email = "";
+    formData.message = "";
+    console.log(formData);
 })
