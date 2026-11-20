@@ -34,9 +34,10 @@ form.addEventListener('submit', (event) => {
         alert("Fill please all fields");
         return;
     }
+    
+    console.log(formData);
     localStorage.removeItem(storageKey);
     form.reset();
     formData.email = "";
     formData.message = "";
-    console.log(formData);
 })
