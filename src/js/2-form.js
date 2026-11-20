@@ -14,6 +14,8 @@ if (saved) {
     const parsed = JSON.parse(saved);
     email.value = parsed.email ?? "";
     message.value = parsed.message ?? "";
+      formState.email = parsed.email ?? "";
+      formState.message = parsed.message ?? "";
   } catch (error) {
     console.error("Invalid JSON in storage:", error);
   }
@@ -34,4 +36,7 @@ form.addEventListener('submit', (event) => {
     }
     localStorage.removeItem(storageKey);
     form.reset();
+    formState.email = email.value;
+    formState.message = message.value;
+    console.log(localStorage.getItem(storageKey));
 })
